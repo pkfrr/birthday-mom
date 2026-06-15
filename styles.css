@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* พื้นหลังไล่สีโทนอบอุ่น */
+    background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);
+    font-family: 'Kanit', sans-serif;
+    overflow: hidden;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    /* อนิเมชันตอนเปิดหน้าเว็บ */
+    animation: fadeIn 1.2s ease-out;
+    position: relative;
+    z-index: 10;
+}
+
+.heart-icon {
+    font-size: 50px;
+    color: #ff4d6d;
+    margin-bottom: -10px;
+    /* อนิเมชันหัวใจเต้น */
+    animation: heartbeat 1.5s infinite;
+    display: inline-block;
+}
+
+h1 {
+    font-family: 'Charm', cursive;
+    color: #d81b60;
+    font-size: 2.8em;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+p {
+    color: #444;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.btn {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.secret-message {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff0f3;
+    border-radius: 15px;
+    color: #d81b60;
+    font-weight: 500;
+    animation: slideDown 0.5s ease-out;
+    border-left: 4px solid #ff4d6d;
+}
+
+.flowers-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flower {
+    position: absolute;
+    font-size: 24px;
+    animation: fall linear forwards;
+}
+
+/* ตั้งค่า Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .card {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .heart-icon {
+        font-size: 40px;
+    }
+}
